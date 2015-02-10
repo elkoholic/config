@@ -40,13 +40,25 @@ bindsym $mod+d exec dmenu_run
 ############  my changes  ##########################################
 # use keyboard switching
 exec_always setxkbmap -layout us,ru -option grp:alt_shift_toggle
+
+# try to setup default workspaces TODO: move to last numbers?
 workspace "2: web" output DVI-I-2
 workspace "3: mail" output DVI-I-2
-exec firefox
-exec thunderbird
-assign [class="(?i)firefox"] 2: web
-assign [class="(?i)thunderbird"] 3: mail
-for_window [class="Skype" title="Information"] floating enable
+#exec firefox
+#exec thunderbird
+#assign [class="(?i)firefox"] 2: web
+#assign [class="(?i)thunderbird"] 3: mail
+#for_window [class="Skype" title="Information"] floating enable
+
+bindsym Mod1+Shift+l exec i3lock -c 0f0f0f
+
+exec xautolock -time 10 -locker 't3lock' &
+
+# show little calendar
+bindsym $mod+c exec zenity --calendar
+
+# try to automount usb flash
+bindsym $mod+m exec udisksctl mount -b /dev/sdc1
 
 ####################################################################
 
