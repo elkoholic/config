@@ -12,6 +12,9 @@ autocmd BufEnter,BufNew control* set ts=8 et sw=4 sts=4	" tab = 4 symbols
 " highlight 81-st column
 set colorcolumn=81
 
+" set global clipboard as default
+set clipboard=unnamedplus
+
 " search
 set ic	" ignore case in search
 set incsearch	" incremental search

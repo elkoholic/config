@@ -41,21 +41,38 @@ bindsym $mod+d exec dmenu_run
 # use keyboard switching
 exec_always setxkbmap -layout us,ru -option grp:alt_shift_toggle
 
-# try to setup default workspaces TODO: move to last numbers?
-workspace "2: web" output DVI-I-2
-workspace "3: mail" output DVI-I-2
-#exec firefox
-#exec thunderbird
-#assign [class="(?i)firefox"] 2: web
-#assign [class="(?i)thunderbird"] 3: mail
-#for_window [class="Skype" title="Information"] floating enable
+# setup default workspaces for left monitor (1-5 numbers)
+workspace "1: main" output DVI-I-1
+workspace "2: virt" output DVI-I-1
+workspace 3 output DVI-I-1
+workspace 4 output DVI-I-1
+workspace 5 output DVI-I-1
+
+# setup default workspaces for right monitor (6-0 numbers)
+workspace "6: web" output DVI-I-2
+workspace "7: mail" output DVI-I-2
+workspace 8 output DVI-I-2
+workspace 9 output DVI-I-2
+workspace 10 output DVI-I-2
+
+exec gnome-terminal
+exec firefox
+exec thunderbird
+exec virtualbox
+assign [class="(?i)firefox"] 6: web
+assign [class="(?i)thunderbird"] 7: mail
+assign [class="(?i)virtualbox"] 2: virt
 
 bindsym Mod1+Shift+l exec i3lock -c 0f0f0f
 
 exec xautolock -time 10 -locker 't3lock' &
 
+# show calc
+bindsym $mod+c exec gnome-calculator
+for_window [title="Calculator"] floating enable
+
 # show little calendar
-bindsym $mod+c exec zenity --calendar
+bindsym $mod+Ctrl+c exec zenity --calendar
 
 # try to automount usb flash
 bindsym $mod+m exec udisksctl mount -b /dev/sdc1
@@ -113,13 +130,13 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace "2: web"
-bindsym $mod+3 workspace "3: mail"
+bindsym $mod+1 workspace "1: main"
+bindsym $mod+2 workspace "2: virt"
+bindsym $mod+3 workspace 3
 bindsym $mod+4 workspace 4
 bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
+bindsym $mod+6 workspace "6: web"
+bindsym $mod+7 workspace "7: mail"
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
