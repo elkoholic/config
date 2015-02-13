@@ -38,15 +38,13 @@ bindsym $mod+d exec dmenu_run
 
 ####################################################################
 ############  my changes  ##########################################
-# use keyboard switching
-exec_always setxkbmap -layout us,ru -option grp:alt_shift_toggle
 
 # setup default workspaces for left monitor (1-5 numbers)
 workspace "1: main" output DVI-I-1
-workspace "2: virt" output DVI-I-1
+workspace 2 output DVI-I-1
 workspace 3 output DVI-I-1
 workspace 4 output DVI-I-1
-workspace 5 output DVI-I-1
+workspace "5: virt" output DVI-I-1
 
 # setup default workspaces for right monitor (6-0 numbers)
 workspace "6: web" output DVI-I-2
@@ -55,13 +53,12 @@ workspace 8 output DVI-I-2
 workspace 9 output DVI-I-2
 workspace 10 output DVI-I-2
 
-exec gnome-terminal
 exec firefox
 exec thunderbird
 exec virtualbox
 assign [class="(?i)firefox"] 6: web
 assign [class="(?i)thunderbird"] 7: mail
-assign [class="(?i)virtualbox"] 2: virt
+assign [class="(?i)virtualbox"] 5: virt
 
 bindsym Mod1+Shift+l exec i3lock -c 0f0f0f
 
@@ -76,6 +73,9 @@ bindsym $mod+Ctrl+c exec zenity --calendar
 
 # try to automount usb flash
 bindsym $mod+m exec udisksctl mount -b /dev/sdc1
+
+# use keyboard switching
+exec_always setxkbmap -layout us,ru -option grp:alt_shift_toggle
 
 ####################################################################
 
@@ -131,10 +131,10 @@ bindsym $mod+a focus parent
 
 # switch to workspace
 bindsym $mod+1 workspace "1: main"
-bindsym $mod+2 workspace "2: virt"
+bindsym $mod+2 workspace 2
 bindsym $mod+3 workspace 3
 bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
+bindsym $mod+5 workspace "5: virt"
 bindsym $mod+6 workspace "6: web"
 bindsym $mod+7 workspace "7: mail"
 bindsym $mod+8 workspace 8
@@ -142,13 +142,13 @@ bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+1 move container to workspace "1: main"
 bindsym $mod+Shift+2 move container to workspace 2
 bindsym $mod+Shift+3 move container to workspace 3
 bindsym $mod+Shift+4 move container to workspace 4
 bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+6 move container to workspace "6: web"
+bindsym $mod+Shift+7 move container to workspace "7: mail"
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10

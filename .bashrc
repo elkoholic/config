@@ -5,7 +5,6 @@
 ####################### MY MODIFICATIONS #######################################
 # to make our current git server working without werification
 export GIT_SSL_NO_VERIFY=1
-export PATH=$PATH:/devdirs/dmitriy/scripts
 #	arm-v7a8v2r2-
 #export PATH=$PATH:/devdirs/dmitriy/devtools/toolchains/VDLinux-ARMv7-4.4-202-toolchain-v2r2-20110630/bin
 #	arm-v7a9v3r0-
