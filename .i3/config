@@ -62,8 +62,6 @@ assign [class="(?i)virtualbox"] 5: virt
 
 bindsym Mod1+Shift+l exec i3lock -c 0f0f0f
 
-exec xautolock -time 10 -locker 't3lock' &
-
 # show calc
 bindsym $mod+c exec gnome-calculator
 for_window [title="Calculator"] floating enable
@@ -75,7 +73,7 @@ bindsym $mod+Ctrl+c exec zenity --calendar
 bindsym $mod+m exec udisksctl mount -b /dev/sdc1
 
 # use keyboard switching
-exec_always setxkbmap -layout us,ru -option grp:alt_shift_toggle
+exec_always setxkbmap -layout us,ru -option grp:alt_shift_toggle,grp_led:scroll
 
 ####################################################################
 
